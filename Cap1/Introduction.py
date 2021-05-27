@@ -427,5 +427,84 @@ np_baseball = np.array(baseball)
 print(np_baseball.shape)
 
 
-#----------Subsetting 2D NumPy Arrays
-#Demo Diana
+#----------2D Arithmetic
+# baseball is available as a regular list of lists
+# updated is available as 2D numpy array
+
+# Import numpy package
+import numpy as np
+
+# Create np_baseball (3 cols)
+np_baseball = np.array(baseball)
+
+# Print out addition of np_baseball and updated
+print(updated+np_baseball)
+
+# Create numpy array: conversion
+conversion = np.array([0.0254,0.453592,1])
+
+# Print out product of np_baseball and conversion
+print(np_baseball * conversion)
+
+
+#------------------Average versus median
+# np_baseball is available
+
+# Import numpy
+import numpy as np
+
+# Create np_height_in from np_baseball
+np_height_in = np.array(np_baseball[:,0])
+
+# Print out the mean of np_height_in
+print(np.mean(np_height_in))
+
+# Print out the median of np_height_in
+print(np.median(np_height_in))
+
+#------------------Explore the baseball data
+# np_baseball is available
+
+# Import numpy
+import numpy as np
+
+# Print mean height (first column)
+avg = np.mean(np_baseball[:,0])
+print("Average: " + str(avg))
+
+# Print median height. Replace 'None'
+med = np.median(np_baseball[:,0])
+print("Median: " + str(med))
+
+# Print out the standard deviation on height. Replace 'None'
+stddev = np.std(np_baseball[:,0])
+print("Standard Deviation: " + str(stddev))
+
+# Print out correlation between first and second column. Replace 'None'
+corr = np.corrcoef(np_baseball[:,0],np_baseball[:,1])
+print("Correlation: " + str(corr))
+
+help(np.corrcoef)
+
+
+#---------Blend it all together
+# heights and positions are available as lists
+
+# Import numpy
+import numpy as np
+
+# Convert positions and heights to numpy arrays: np_positions, np_heights
+np_heights = np.array(heights)
+np_positions = np.array(positions)
+
+# Heights of the goalkeepers: gk_heights
+gk_heights = np_heights[np_positions == 'GK']
+
+# Heights of the other players: other_heights
+other_heights = np_heights[np_positions != 'GK']
+
+# Print out the median height of goalkeepers. Replace 'None'
+print("Median height of goalkeepers: " + str(np.median(gk_heights)))
+
+# Print out the median height of other players. Replace 'None'
+print("Median height of other players: " + str(np.median(other_heights)))
